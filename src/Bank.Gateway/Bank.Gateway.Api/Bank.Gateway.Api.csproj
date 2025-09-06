@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8e9719f0-9b4c-420b-8ed2-70fbe83c3946</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\External\" />
+    <Folder Include="Application\Features\" />
+    <Folder Include="Domain\Constants\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="External\" />
+  </ItemGroup>
+
+</Project>
