@@ -34,15 +34,15 @@ namespace Bank.Transaction.Api.Application.Features.Process
                     break;
                 case ReceivedSubscriptionsConstants.BALANCE_CONFIRMED:
                     _logger.LogInformation("(Transaction) Handling BALANCE_CONFIRMED");
-                    BalanceConfirmed(message);
+                    await BalanceConfirmed(message);
                     break;
                 case ReceivedSubscriptionsConstants.BALANCE_FAILED:
                     _logger.LogInformation("(Transaction) Handling BALANCE_FAILED");
-                    BalanceFailed(message);
+                    await BalanceFailed(message);
                     break;
                 case ReceivedSubscriptionsConstants.TRANSFER_FAILED:
                     _logger.LogInformation("(Transaction) Handling TRANSFER_FAILED");
-                    TransferFailed(message);
+                    await TransferFailed(message);
                     break;
                 case ReceivedSubscriptionsConstants.TRANSFER_CONFIRMED:
                     _logger.LogInformation("(Transaction) Handling TRANSFER_CONFIRMED");
@@ -51,17 +51,17 @@ namespace Bank.Transaction.Api.Application.Features.Process
             }
         }
 
-        private void TransferFailed(string message)
+        private Task TransferFailed(string message)
         {
             throw new NotImplementedException();
         }
 
-        private void BalanceFailed(string message)
+        private async Task BalanceFailed(string message)
         {
             throw new NotImplementedException();
         }
 
-        private void BalanceConfirmed(string message)
+        private async Task BalanceConfirmed(string message)
         {
             throw new NotImplementedException();
         }
