@@ -28,10 +28,4 @@ builder.Services.AddHostedService<ServiceBusReceiveService>();
 
 var app = builder.Build();
 
-app.MapGet("/transactions", async ([FromServices] IDatabaseService _dbService) =>
-{
-    var data = await _dbService.Transaction.ToListAsync();
-    return data;
-});
-
 app.Run();
