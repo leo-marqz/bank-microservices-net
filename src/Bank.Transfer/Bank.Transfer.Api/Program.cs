@@ -1,6 +1,5 @@
 using Bank.Transfer.Api.Application.Database;
 using Bank.Transfer.Api.Persistence.Database;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,5 @@
 using Bank.Balance.Api.Application.Database;
 using Bank.Balance.Api.Persistence.Database;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

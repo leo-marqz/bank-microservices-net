@@ -6,7 +6,6 @@ using Bank.Transaction.Api.Application.Handlers;
 using Bank.Transaction.Api.External.ServiceBusReceive;
 using Bank.Transaction.Api.External.ServiceBusSender;
 using Bank.Transaction.Api.Persistence.Database;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
