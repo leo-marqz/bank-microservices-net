@@ -8,7 +8,6 @@ namespace Bank.Gateway.Api.External.ServiceBusSender
     {
         private readonly ServiceBusClient _serviceBusClient;
         private readonly string _topicName;
-
         public ServiceBusSenderService(IConfiguration configuration)
         {
             _serviceBusClient = new ServiceBusClient(configuration["SERVICE_BUS_CONNECTION_STRING"]);
