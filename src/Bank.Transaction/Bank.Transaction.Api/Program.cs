@@ -1,8 +1,10 @@
 
 using Bank.Transaction.Api.Application.Database;
+using Bank.Transaction.Api.Application.External.ServiceBusSender;
 using Bank.Transaction.Api.Application.Features.Process;
 using Bank.Transaction.Api.Application.Handlers;
 using Bank.Transaction.Api.External.ServiceBusReceive;
+using Bank.Transaction.Api.External.ServiceBusSender;
 using Bank.Transaction.Api.Persistence.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +18,7 @@ builder.Services.AddDbContext<DatabaseService>((options) =>
 
 builder.Services.AddScoped<IDatabaseService, DatabaseService>();
 builder.Services.AddScoped<IProcessService, ProcessService>();
+builder.Services.AddSingleton<IServiceBusSenderService, ServiceBusSenderService>();
 builder.Services.AddMediatR((configuration) =>
 {
     configuration.RegisterServicesFromAssemblies( typeof(ProcessHandler).Assembly );
