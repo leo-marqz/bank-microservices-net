@@ -1,9 +1,10 @@
 ﻿using Azure.Messaging.ServiceBus;
+using Bank.Gateway.Api.Application.External.ServiceBusSender;
 using System.Text.Json;
 
 namespace Bank.Gateway.Api.External.ServiceBusSender
 {
-    public class ServiceBusSenderService
+    public class ServiceBusSenderService : IServiceBusSenderService
     {
         private readonly ServiceBusClient _serviceBusClient;
         private readonly string _topicName;
