@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Balance.Api", "src\Ban
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Transfer.Api", "src\Bank.Transfer\Bank.Transfer.Api\Bank.Transfer.Api.csproj", "{9EF7C51C-1F16-4EFF-BAF1-696C562DC85D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Notification", "src\Bank.Notification\Bank.Notification\Bank.Notification.csproj", "{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9EF7C51C-1F16-4EFF-BAF1-696C562DC85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF7C51C-1F16-4EFF-BAF1-696C562DC85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF7C51C-1F16-4EFF-BAF1-696C562DC85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{325E65C3-1E62-4E56-8C86-912626089C67} = {F328B063-BD5E-4BD4-A28F-90B932CBF29F}
 		{3A935D81-0DEB-4135-A819-0337A108F059} = {3E2CF156-CBC0-4303-B884-FC6F83598FB8}
 		{9EF7C51C-1F16-4EFF-BAF1-696C562DC85D} = {FA00B9A3-FE7D-49B7-9D6E-564B616B33CA}
+		{B7CE61E3-F7A9-44B2-9E33-DC39CE89D40D} = {B9EFD628-D33C-479E-B5A4-51D902D33AE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {187778A4-B43C-4DA0-A9E5-C7705404399B}

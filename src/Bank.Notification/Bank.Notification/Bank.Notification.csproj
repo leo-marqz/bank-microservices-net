@@ -4,13 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>8e9719f0-9b4c-420b-8ed2-70fbe83c3946</UserSecretsId>
+    <UserSecretsId>04f1c205-ddea-4840-b3be-00dc494ae185</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\External\" />
-    <Folder Include="Application\Features\" />
-    <Folder Include="Domain\Entities\" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.53.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="External\" />
   </ItemGroup>
 
