@@ -4,7 +4,6 @@ using Bank.Transaction.Api.Domain.Constants;
 using Bank.Transaction.Api.Domain.Entities.Transaction;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System.Text.Json;
 
 namespace Bank.Transaction.Api.Application.Features.Process
 {

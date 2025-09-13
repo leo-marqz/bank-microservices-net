@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <Folder Include="Application\External\" />
-    <Folder Include="Application\Features\" />
     <Folder Include="External\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
   </ItemGroup>
 
