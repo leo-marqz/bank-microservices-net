@@ -1,17 +1,21 @@
 ﻿using Bank.Balance.Api.Application.Database;
+using Bank.Balance.Api.Application.External.ServiceBusSender;
 using Bank.Balance.Api.Domain.Constants;
 using Bank.Balance.Api.Domain.Entities.Transaction;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Bank.Balance.Api.Application.Features.Process
 {
     public class ProcessService : IProcessService
     {
         private readonly IDatabaseService _databaseService;
+        private readonly IServiceBusSenderService _serviceBusSenderService;
 
-        public ProcessService(IDatabaseService databaseService)
+        public ProcessService(IDatabaseService databaseService, IServiceBusSenderService serviceBusSenderService)
         {
             _databaseService = databaseService;
+            _serviceBusSenderService = serviceBusSenderService;
         }
 
         public async Task Execute(string message, string subscription)
@@ -43,7 +47,32 @@ namespace Bank.Balance.Api.Application.Features.Process
 
         private async Task BalanceInitiated(string message)
         {
-            throw new NotImplementedException();
+            var entity = JsonConvert.DeserializeObject<BalanceEntity>(message);
+            entity.CurrentState = CurrentStateConstants.PENDING;
+
+            var saveEntity = await ProcessDatabase(entity);
+
+            var eventModel = new {entity.CorrelationId, entity.CustomerId, entity.CurrentState};
+
+            if(saveEntity.Id != 0)
+            {
+                //mensage para transaction
+                await _serviceBusSenderService.Execute(
+                    eventModel: eventModel,
+                    subscription: SendSubscriptionConstants.BALANCE_CONFIRMED
+                    );
+
+                //mensage para transfer
+                await _serviceBusSenderService.Execute(
+                    eventModel: eventModel,
+                    subscription: SendSubscriptionConstants.BALANCE_CONFIRMED
+                    );
+            }
+            else
+            {
+
+            }
+
         }
 
         public async Task<BalanceEntity> ProcessDatabase(BalanceEntity entity)

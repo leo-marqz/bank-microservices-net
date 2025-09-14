@@ -3,7 +3,7 @@ using Bank.Balance.Api.Application.Features.Process;
 using Bank.Balance.Api.Domain.Events;
 using MediatR;
 
-namespace Bank.Transaction.Api.Application.Handlers
+namespace Bank.Balance.Api.Application.Handlers
 {
     public class ProcessHandler : INotificationHandler<ProcessEvent>
     {
