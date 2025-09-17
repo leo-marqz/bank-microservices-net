@@ -62,15 +62,14 @@ namespace Bank.Balance.Api.Application.Features.Process
                     subscription: SendSubscriptionConstants.BALANCE_CONFIRMED
                     );
 
-                //mensage para transfer
-                await _serviceBusSenderService.Execute(
-                    eventModel: eventModel,
-                    subscription: SendSubscriptionConstants.BALANCE_CONFIRMED
-                    );
             }
             else
             {
-
+                //mensage para transaction
+                await _serviceBusSenderService.Execute(
+                    eventModel: eventModel,
+                    subscription: SendSubscriptionConstants.BALANCE_FAILED
+                    );
             }
 
         }

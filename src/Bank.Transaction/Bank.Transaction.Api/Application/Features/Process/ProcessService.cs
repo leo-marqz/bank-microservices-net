@@ -57,12 +57,46 @@ namespace Bank.Transaction.Api.Application.Features.Process
 
         private async Task BalanceFailed(string message)
         {
-            throw new NotImplementedException();
+            var entity = JsonConvert.DeserializeObject<TransactionEntity>(message);
+
+            entity.CurrentState = CurrentStateConstants.CANCELED;
+
+            var saveEntity = await ProcessDatabase(entity);
+
+            var eventModel = new
+            {
+                saveEntity.CorrelationId,
+                entity.Amount,
+                entity.CustomerId
+            };
+
+            //MS Notification to Transaction Failed
+            await _serviceBusSenderService.Execute(
+                    eventModel,
+                    SendSubscriptionConstants.TRANSACTION_FAILED
+                );
         }
 
         private async Task BalanceConfirmed(string message)
         {
-            throw new NotImplementedException();
+            var entity = JsonConvert.DeserializeObject<TransactionEntity>(message);
+
+            entity.CurrentState = CurrentStateConstants.PENDING;
+
+            var saveEntity = await ProcessDatabase(entity);
+
+            var eventModel = new { 
+                saveEntity.CorrelationId,
+                saveEntity.Amount,
+                saveEntity.SourceAccount,
+                saveEntity.DestinationAccount,
+                saveEntity.CustomerId
+            };
+
+            await _serviceBusSenderService.Execute(
+                    eventModel,
+                    SendSubscriptionConstants.TRANSFER_INITIATED
+                );
         }
 
         private async Task TransactionInitiatedAsync(string message)
