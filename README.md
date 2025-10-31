@@ -25,7 +25,7 @@ La arquitectura implementa:
 - Persistencia independiente para cada microservicio con **Azure SQL Database** y **CosmosDB**.  
 - Observabilidad centralizada utilizando **Application Insights**.
 
-![Arquitectura de Microservicios](architecture-diagram.svg)
+![Arquitectura de Microservicios](bank-microservices-diagram-infra.svg)
 
 ---
 
